@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Stackly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
+        <path d="M3 20C3 20 9 24 15 21" stroke="#1B3B36" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span>Stackly</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html" class="nav-link ">Home</a></li>
+        <li><a href="about.html" class="nav-link ">About</a></li>
+        <li><a href="service.html" class="nav-link ">Service</a></li>
+        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+        <li><a href="contact.html" class="nav-link ">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="login.html" class="btn btn-login">Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="page-hero-media">
+    <img src="https://images.unsplash.com/photo-1526676037944-dd0a4d1e0f8f?q=80&w=1920&auto=format&fit=crop" alt="Kids at summer camp">
+  </div>
+  <div class="page-hero-copy reveal" data-reveal>
+    <span class="tag">Blog</span>
+    <h1>News from<br>the club.</h1>
+  </div>
+</section>
+
+<!-- ===== NEWS GRID ===== -->
+<section class="news">
+  <div class="section-head reveal" data-reveal>
+    <span class="tag tag-light">Latest</span>
+    <h2>News &amp; press</h2>
+  </div>
+  <div class="news-grid">
+    <article class="news-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=700&auto=format&fit=crop" alt="Kids training on the court" data-fallback-icon="fa-basketball">
+      <div class="news-body">
+        <span class="fine">Sep 12, 2026</span>
+        <h3>Fall registration is now open</h3>
+        <p>Trimester spots are filling fast across every sport — here's how to lock in a place for your athlete.</p>
+        <a href="#" class="link-arrow">Read more</a>
+      </div>
+    </article>
+    <article class="news-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?q=80&w=700&auto=format&fit=crop" alt="Swimmer in the pool" data-fallback-icon="fa-person-swimming">
+      <div class="news-body">
+        <span class="fine">Aug 28, 2026</span>
+        <h3>Meet our new Aquatics Lead</h3>
+        <p>Jenna Reyes joins the club with a decade of competitive coaching experience.</p>
+        <a href="#" class="link-arrow">Read more</a>
+      </div>
+    </article>
+    <article class="news-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1526676037944-dd0a4d1e0f8f?q=80&w=700&auto=format&fit=crop" alt="Kids at summer camp" data-fallback-icon="fa-campground">
+      <div class="news-body">
+        <span class="fine">Aug 04, 2026</span>
+        <h3>Summer camp recap: a season of firsts</h3>
+        <p>From first goals to first laps, see the highlights from this year's camps.</p>
+        <a href="#" class="link-arrow">Read more</a>
+      </div>
+    </article>
+    <article class="news-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=700&auto=format&fit=crop" alt="Fitness class" data-fallback-icon="fa-dumbbell">
+      <div class="news-body">
+        <span class="fine">Jul 22, 2026</span>
+        <h3>Five ways to keep young athletes motivated</h3>
+        <p>Coach Priya shares simple habits that keep kids excited about practice.</p>
+        <a href="#" class="link-arrow">Read more</a>
+      </div>
+    </article>
+    <article class="news-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=700&auto=format&fit=crop" alt="Indoor gym court" data-fallback-icon="fa-house">
+      <div class="news-body">
+        <span class="fine">Jul 09, 2026</span>
+        <h3>Renting the gym for your next event</h3>
+        <p>A look at how local teams and schools use our facility outside club hours.</p>
+        <a href="#" class="link-arrow">Read more</a>
+      </div>
+    </article>
+    <article class="news-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=700&auto=format&fit=crop" alt="Team laughing together" data-fallback-icon="fa-people-group">
+      <div class="news-body">
+        <span class="fine">Jun 18, 2026</span>
+        <h3>Volunteer coaches: thank you for a great season</h3>
+        <p>A recap of the parents and volunteers who made spring league possible.</p>
+        <a href="#" class="link-arrow">Read more</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery">
+  <div class="section-head reveal" data-reveal>
+    <span class="tag tag-light">Gallery</span>
+    <h2>Life at the club</h2>
+  </div>
+  <div class="gallery-grid">
+    <figure class="gallery-item reveal" data-reveal><img src="https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=700&auto=format&fit=crop" alt="Kids running on a field" data-fallback-icon="fa-person-running"></figure>
+    <figure class="gallery-item reveal" data-reveal><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=700&auto=format&fit=crop" alt="Basketball practice" data-fallback-icon="fa-basketball"></figure>
+    <figure class="gallery-item reveal" data-reveal><img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=700&auto=format&fit=crop" alt="Team laughing together" data-fallback-icon="fa-people-group"></figure>
+    <figure class="gallery-item reveal" data-reveal><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=700&auto=format&fit=crop" alt="Swim lesson" data-fallback-icon="fa-person-swimming"></figure>
+    <figure class="gallery-item reveal" data-reveal><img src="https://images.unsplash.com/photo-1526401485004-46910ecc8e51?q=80&w=700&auto=format&fit=crop" alt="Kids camp activity" data-fallback-icon="fa-campground"></figure>
+    <figure class="gallery-item reveal" data-reveal><img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?q=80&w=700&auto=format&fit=crop" alt="Fitness class" data-fallback-icon="fa-dumbbell"></figure>
+  </div>
+</section>
+
+<!-- ===== PARTNERS ===== -->
+<section class="partners">
+  <p class="partners-label reveal" data-reveal>Trusted by local families and proud to partner with</p>
+  <div class="partners-track-wrap reveal" data-reveal>
+    <div class="partners-row">
+      <span>Portland Parks &amp; Rec</span>
+      <span>Cedar Hills School District</span>
+      <span>NW Youth Soccer League</span>
+      <span>Oregon Swim Alliance</span>
+      <span>FitGear Co.</span>
+      <span>Portland Parks &amp; Rec</span>
+      <span>Cedar Hills School District</span>
+      <span>NW Youth Soccer League</span>
+      <span>Oregon Swim Alliance</span>
+      <span>FitGear Co.</span>
+    </div>
+  </div>
+</section>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">
+        <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
+        </svg>
+        <span>More than a place to practice and play.</span>
+      </div>
+
+      <div class="newsletter">
+        <h4>Community</h4>
+        <p>Subscribe to receive registration perks, exclusive offers &amp; more!</p>
+        <form id="newsletterForm">
+          <input type="email" placeholder="Enter email" required aria-label="Email address">
+          <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="service.html">Sports</a></li>
+        <li><a href="service.html">Aquatics</a></li>
+        <li><a href="service.html">Fitness</a></li>
+        <li><a href="service.html">Camps</a></li>
+        <li><a href="service.html">Rent</a></li>
+        <li><a href="service.html">Daycare</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Membership</a></li>
+        <li><a href="contact.html">Jobs</a></li>
+        <li><a href="blog.html">FAQ</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="blog.html">News + Press</a></li>
+        <li><a href="contact.html">Sponsorships/Partnership</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacts</h4>
+      <ul class="contact-list">
+        <li>+ (123) 1800-567-8990</li>
+        <li>contact@stackly.com</li>
+        <li>2200 SW Cedar Hills Blvd.<br>Portland, Oregon 97225</li>
+      </ul>
+      <a href="contact.html" class="link-arrow">Get directions</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Stackly. All rights reserved. <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">FAQs</a></p>
+    <div class="socials">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+    </div>
+    <a href="service.html" class="btn btn-lime btn-small">Schedules</a>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>

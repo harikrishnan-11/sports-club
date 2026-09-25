@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Stackly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
+        <path d="M3 20C3 20 9 24 15 21" stroke="#1B3B36" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span>Stackly</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html" class="nav-link ">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="service.html" class="nav-link ">Service</a></li>
+        <li><a href="blog.html" class="nav-link ">Blog</a></li>
+        <li><a href="contact.html" class="nav-link ">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="login.html" class="btn btn-login">Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="page-hero-media">
+    <img src="https://images.unsplash.com/photo-1524015368236-d0e2680f0c04?q=80&w=1920&auto=format&fit=crop" alt="Aerial view of sports courts">
+  </div>
+  <div class="page-hero-copy reveal" data-reveal>
+    <span class="tag">About us</span>
+    <h1>Built by coaches.<br>Run for families.</h1>
+  </div>
+</section>
+
+<!-- ===== EXPLORE / ABOUT ===== -->
+<section class="explore" style="margin-top:0;">
+  <div class="explore-media">
+    <img src="https://images.unsplash.com/photo-1524015368236-d0e2680f0c04?q=80&w=1600&auto=format&fit=crop" alt="Aerial view of sports courts">
+  </div>
+
+  <div class="explore-card reveal" data-reveal>
+    <span class="tag tag-light">Our story</span>
+    <h2>Explore our club</h2>
+    <p>Discover our modern facilities and enjoy our top-notch amenities.
+      Our friendly staff will guide you through a variety of group
+      classes, high-quality fitness equipment, spacious aquatic pools,
+      and a fun, safe kids' club.</p>
+    <p>Our venue is the ideal place for fitness, relaxation, and family fun.</p>
+
+    <div class="explore-links">
+      <a href="#mission" class="link-arrow">Our mission</a>
+      <a href="#facility" class="link-arrow">Our facility</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>175,000</strong>
+        <span>Square foot indoor sports</span>
+      </div>
+      <div class="stat">
+        <strong>35 acres</strong>
+        <span>Land space for outdoor</span>
+      </div>
+      <div class="stat">
+        <strong>24/7</strong>
+        <span>Available even at night</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACHIEVEMENTS ===== -->
+<section class="achievements">
+  <div class="achievements-grid">
+    <div class="achieve reveal" data-reveal>
+      <i class="fa-solid fa-calendar-days achieve-icon"></i>
+      <strong data-count="18">0</strong>
+      <span>Years running</span>
+    </div>
+    <div class="achieve reveal" data-reveal>
+      <i class="fa-solid fa-people-group achieve-icon"></i>
+      <strong data-count="2400">0</strong>
+      <span>Active members</span>
+    </div>
+    <div class="achieve reveal" data-reveal>
+      <i class="fa-solid fa-whistle achieve-icon"></i>
+      <strong data-count="46">0</strong>
+      <span>Certified coaches</span>
+    </div>
+    <div class="achieve reveal" data-reveal>
+      <i class="fa-solid fa-trophy achieve-icon"></i>
+      <strong data-count="120">0</strong>
+      <span>Tournaments won</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COACHES ===== -->
+<section class="coaches" id="mission">
+  <div class="section-head reveal" data-reveal>
+    <span class="tag tag-light">Our staff</span>
+    <h2>Meet the coaches</h2>
+  </div>
+  <div class="coaches-grid">
+    <article class="coach-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?q=80&w=600&auto=format&fit=crop" alt="Coach Mike, soccer director" data-fallback-icon="fa-futbol">
+      <h3>Mike Sanders</h3>
+      <span>Soccer Director</span>
+    </article>
+    <article class="coach-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Coach Jenna, aquatics lead" data-fallback-icon="fa-person-swimming">
+      <h3>Jenna Reyes</h3>
+      <span>Aquatics Lead</span>
+    </article>
+    <article class="coach-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop" alt="Coach Alex, volleyball head" data-fallback-icon="fa-volleyball">
+      <h3>Alex Turner</h3>
+      <span>Volleyball Head Coach</span>
+    </article>
+    <article class="coach-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600&auto=format&fit=crop" alt="Coach Priya, fitness trainer" data-fallback-icon="fa-dumbbell">
+      <h3>Priya Nair</h3>
+      <span>Fitness Trainer</span>
+    </article>
+  </div>
+</section>
+
+<!-- ===== VALUES MARQUEE ===== -->
+<section class="values">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Heart.</span><span class="dim">Respect.</span><span>Teamwork.</span><span class="dim">Integrity.</span><span>Accountability.</span><span class="dim">Humility.</span><span>Spirit.</span><span class="dim">Self-Belief.</span>
+      <span>Heart.</span><span class="dim">Respect.</span><span>Teamwork.</span><span class="dim">Integrity.</span><span>Accountability.</span><span class="dim">Humility.</span><span>Spirit.</span><span class="dim">Self-Belief.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PILLARS ===== -->
+<section class="pillars" id="facility">
+  <div class="pillar">
+    <figure class="pillar-img reveal" data-reveal="left">
+      <img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1200&auto=format&fit=crop" alt="Friends huddled together on a court">
+    </figure>
+    <div class="pillar-copy reveal" data-reveal="right">
+      <h2>Community</h2>
+      <p>We unite players, families, and coaches in an inclusive
+        environment where everyone feels valued. Through events and
+        support for one another, we foster connections that go beyond
+        the sport.</p>
+    </div>
+  </div>
+
+  <div class="pillar pillar-reverse">
+    <figure class="pillar-img reveal" data-reveal="right">
+      <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=1200&auto=format&fit=crop" alt="Basketball team laughing together">
+    </figure>
+    <div class="pillar-copy reveal" data-reveal="left">
+      <h2>Fun</h2>
+      <p>Enjoying the game creates a positive environment for players to
+        thrive. Through team activities and outings, we foster joyful
+        experiences that build teamwork and lasting memories.</p>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <figure class="pillar-img reveal" data-reveal="left">
+      <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=1200&auto=format&fit=crop" alt="Adults playing pickleball together">
+    </figure>
+    <div class="pillar-copy reveal" data-reveal="right">
+      <h2>Teamwork</h2>
+      <p>Teamwork is key to our club. We focus on collaboration and
+        trust, helping players support each other on and off the field.
+        Together, we build skills and lasting friendships.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOIN CTA ===== -->
+<section class="join">
+  <div class="join-bar">
+    <h2>Join our community</h2>
+    <div class="join-buttons">
+      <a href="signup.html" class="btn btn-lime">Become a member</a>
+      <a href="service.html" class="btn btn-outline-light">Members benefits</a>
+    </div>
+  </div>
+</section>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">
+        <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
+        </svg>
+        <span>More than a place to practice and play.</span>
+      </div>
+
+      <div class="newsletter">
+        <h4>Community</h4>
+        <p>Subscribe to receive registration perks, exclusive offers &amp; more!</p>
+        <form id="newsletterForm">
+          <input type="email" placeholder="Enter email" required aria-label="Email address">
+          <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="service.html">Sports</a></li>
+        <li><a href="service.html">Aquatics</a></li>
+        <li><a href="service.html">Fitness</a></li>
+        <li><a href="service.html">Camps</a></li>
+        <li><a href="service.html">Rent</a></li>
+        <li><a href="service.html">Daycare</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Membership</a></li>
+        <li><a href="contact.html">Jobs</a></li>
+        <li><a href="blog.html">FAQ</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="blog.html">News + Press</a></li>
+        <li><a href="contact.html">Sponsorships/Partnership</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacts</h4>
+      <ul class="contact-list">
+        <li>+ (123) 1800-567-8990</li>
+        <li>contact@stackly.com</li>
+        <li>2200 SW Cedar Hills Blvd.<br>Portland, Oregon 97225</li>
+      </ul>
+      <a href="contact.html" class="link-arrow">Get directions</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Stackly. All rights reserved. <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">FAQs</a></p>
+    <div class="socials">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+    </div>
+    <a href="service.html" class="btn btn-lime btn-small">Schedules</a>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>

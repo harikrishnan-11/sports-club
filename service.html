@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service — Stackly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
+        <path d="M3 20C3 20 9 24 15 21" stroke="#1B3B36" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span>Stackly</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html" class="nav-link ">Home</a></li>
+        <li><a href="about.html" class="nav-link ">About</a></li>
+        <li><a href="service.html" class="nav-link active">Service</a></li>
+        <li><a href="blog.html" class="nav-link ">Blog</a></li>
+        <li><a href="contact.html" class="nav-link ">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="login.html" class="btn btn-login">Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="page-hero-media">
+    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1920&auto=format&fit=crop" alt="Kids playing basketball">
+  </div>
+  <div class="page-hero-copy reveal" data-reveal>
+    <span class="tag">Our service</span>
+    <h1>Programs for<br>every athlete.</h1>
+  </div>
+</section>
+
+<!-- ===== PROGRAMS ===== -->
+<section class="programs">
+  <div class="section-head reveal" data-reveal>
+    <span class="tag tag-light">Our offers</span>
+    <h2>Programs for everyone</h2>
+  </div>
+
+  <div class="programs-grid">
+    <article class="program-card program-large reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1000&auto=format&fit=crop" alt="Woman playing basketball">
+      <div class="program-body">
+        <span class="chip"><i class="fa-solid fa-basketball"></i> Kids &amp; Adults</span>
+        <h3>Sports</h3>
+        <p>Explore our top-notch sports instruction and leagues for kids
+          and adults including basketball, soccer, baseball and more.</p>
+        <a href="contact.html" class="link-arrow">All sports</a>
+      </div>
+    </article>
+
+    <article class="program-card program-large reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?q=80&w=1000&auto=format&fit=crop" alt="Boy swimming">
+      <div class="program-body">
+        <span class="chip"><i class="fa-solid fa-person-swimming"></i> Kids &amp; Adults</span>
+        <h3>Aquatics</h3>
+        <p>Experience our Aquatics program, designed to enhance swimming
+          skills and offer a variety of engaging water activities for all ages.</p>
+        <a href="contact.html" class="link-arrow">Learn more</a>
+      </div>
+    </article>
+
+    <article class="program-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=700&auto=format&fit=crop" alt="Fitness coaching">
+      <div class="program-body">
+        <span class="chip"><i class="fa-solid fa-dumbbell"></i> Adults</span>
+        <h3>Fitness</h3>
+        <p>Discover our Fitness program, featuring diverse classes and
+          expert coaching to help you reach your goals.</p>
+        <a href="contact.html" class="link-arrow">Learn more</a>
+      </div>
+    </article>
+
+    <article class="program-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1526401485004-46910ecc8e51?q=80&w=700&auto=format&fit=crop" alt="Kids sack race at camp" data-fallback-icon="fa-campground">
+      <div class="program-body">
+        <span class="chip"><i class="fa-solid fa-campground"></i> Kids</span>
+        <h3>Camps</h3>
+        <p>Our Camps program features sports activities that promote
+          teamwork, skill development, and friendships.</p>
+        <a href="contact.html" class="link-arrow">Learn more</a>
+      </div>
+    </article>
+
+    <article class="program-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=700&auto=format&fit=crop" alt="Indoor gym court">
+      <div class="program-body">
+        <span class="chip"><i class="fa-solid fa-house"></i> Kids &amp; Adults</span>
+        <h3>Rent</h3>
+        <p>Rent our top-notch sports facilities for your events, providing
+          the perfect venue for practice or competition.</p>
+        <a href="contact.html" class="link-arrow">Learn more</a>
+      </div>
+    </article>
+
+    <article class="program-card reveal" data-reveal>
+      <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=700&auto=format&fit=crop" alt="Kids indoor play area">
+      <div class="program-body">
+        <span class="chip"><i class="fa-solid fa-child-reaching"></i> Kids</span>
+        <h3>Daycare</h3>
+        <p>Daycare provides a safe and engaging environment for your
+          child while you train, ensuring peace of mind.</p>
+        <a href="contact.html" class="link-arrow">Learn more</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing">
+  <div class="section-head reveal" data-reveal>
+    <span class="tag tag-light">Membership</span>
+    <h2>Find your plan</h2>
+  </div>
+  <div class="pricing-grid">
+    <article class="price-card reveal" data-reveal="zoom">
+      <h3>Starter</h3>
+      <p class="price"><span>$29</span>/mo</p>
+      <p class="price-desc">For families trying a single program.</p>
+      <ul>
+        <li>1 weekly class</li>
+        <li>Access to open gym hours</li>
+        <li>Member newsletter</li>
+      </ul>
+      <a href="signup.html" class="btn btn-outline">Choose plan</a>
+    </article>
+    <article class="price-card price-featured reveal" data-reveal>
+      <span class="price-badge">Most popular</span>
+      <h3>All-Access</h3>
+      <p class="price"><span>$79</span>/mo</p>
+      <p class="price-desc">Unlimited programs for one athlete.</p>
+      <ul>
+        <li>Unlimited classes &amp; open gym</li>
+        <li>Priority camp registration</li>
+        <li>1 free consultation / month</li>
+        <li>10% off gear &amp; events</li>
+      </ul>
+      <a href="signup.html" class="btn btn-lime">Choose plan</a>
+    </article>
+    <article class="price-card reveal" data-reveal="zoom">
+      <h3>Family</h3>
+      <p class="price"><span>$129</span>/mo</p>
+      <p class="price-desc">Unlimited programs for up to 4 athletes.</p>
+      <ul>
+        <li>Everything in All-Access</li>
+        <li>Sibling &amp; multi-sport discounts</li>
+        <li>Dedicated family scheduling</li>
+      </ul>
+      <a href="signup.html" class="btn btn-outline">Choose plan</a>
+    </article>
+  </div>
+</section>
+
+<!-- ===== EVENTS ===== -->
+<section class="events">
+  <div class="section-head reveal" data-reveal>
+    <span class="tag tag-light">What's on</span>
+    <h2>Upcoming events</h2>
+  </div>
+  <div class="events-list">
+    <div class="event-row reveal" data-reveal>
+      <div class="event-date"><strong>12</strong><span>Oct</span></div>
+      <div class="event-body">
+        <h3>Fall Soccer Tryouts</h3>
+        <p>Open tryouts for the U10–U14 fall soccer league. Cleats and shin guards required.</p>
+      </div>
+      <span class="event-time">9:00 AM</span>
+    </div>
+    <div class="event-row reveal" data-reveal>
+      <div class="event-date"><strong>19</strong><span>Oct</span></div>
+      <div class="event-body">
+        <h3>Family Swim Night</h3>
+        <p>Free pool access for member families, with lifeguards and games on deck.</p>
+      </div>
+      <span class="event-time">6:00 PM</span>
+    </div>
+    <div class="event-row reveal" data-reveal>
+      <div class="event-date"><strong>2</strong><span>Nov</span></div>
+      <div class="event-body">
+        <h3>Youth Basketball Jamboree</h3>
+        <p>A friendly round-robin tournament for all youth basketball teams.</p>
+      </div>
+      <span class="event-time">10:00 AM</span>
+    </div>
+  </div>
+</section>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">
+        <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
+        </svg>
+        <span>More than a place to practice and play.</span>
+      </div>
+
+      <div class="newsletter">
+        <h4>Community</h4>
+        <p>Subscribe to receive registration perks, exclusive offers &amp; more!</p>
+        <form id="newsletterForm">
+          <input type="email" placeholder="Enter email" required aria-label="Email address">
+          <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="service.html">Sports</a></li>
+        <li><a href="service.html">Aquatics</a></li>
+        <li><a href="service.html">Fitness</a></li>
+        <li><a href="service.html">Camps</a></li>
+        <li><a href="service.html">Rent</a></li>
+        <li><a href="service.html">Daycare</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Membership</a></li>
+        <li><a href="contact.html">Jobs</a></li>
+        <li><a href="blog.html">FAQ</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="blog.html">News + Press</a></li>
+        <li><a href="contact.html">Sponsorships/Partnership</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacts</h4>
+      <ul class="contact-list">
+        <li>+ (123) 1800-567-8990</li>
+        <li>contact@stackly.com</li>
+        <li>2200 SW Cedar Hills Blvd.<br>Portland, Oregon 97225</li>
+      </ul>
+      <a href="contact.html" class="link-arrow">Get directions</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Stackly. All rights reserved. <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">FAQs</a></p>
+    <div class="socials">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+    </div>
+    <a href="service.html" class="btn btn-lime btn-small">Schedules</a>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>

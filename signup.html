@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign up — Stackly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-body">
+
+<div class="scroll-progress" id="scrollProgress" style="display:none;"></div>
+
+<header class="auth-header">
+  <a href="index.html" class="logo">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
+      <path d="M3 20C3 20 9 24 15 21" stroke="#1B3B36" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <span>Stackly</span>
+  </a>
+  <a href="index.html" class="auth-back"><i class="fa-solid fa-arrow-left"></i> Back to site</a>
+</header>
+
+<main class="auth-wrap">
+  <div class="auth-media">
+    <img src="https://images.unsplash.com/photo-1594736797933-d0b22ba52a4d?q=80&w=1400&auto=format&fit=crop" alt="Kids with a volleyball">
+    <div class="auth-media-copy">
+      <span class="tag">Join the club</span>
+      <h2>More than a place<br>to practice and play.</h2>
+      <p>Create your account to enrol in programs, save your favorite classes, and join our community.</p>
+    </div>
+  </div>
+
+  <div class="auth-panel reveal" data-reveal>
+    <div class="auth-card">
+      <h1>Create account</h1>
+      <p class="auth-sub">Let's get your family set up in a couple of minutes.</p>
+
+      <form id="signupForm" novalidate>
+        <div class="field-row-2">
+          <label class="field">
+            <span>First name</span>
+            <input type="text" name="firstName" placeholder="Jamie" required autocomplete="given-name">
+            <small class="field-error"></small>
+          </label>
+          <label class="field">
+            <span>Last name</span>
+            <input type="text" name="lastName" placeholder="Rivera" required autocomplete="family-name">
+            <small class="field-error"></small>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Email address</span>
+          <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          <small class="field-error"></small>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <div class="password-wrap">
+            <input type="password" name="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password" id="signupPassword">
+            <button type="button" class="toggle-pw" data-target="signupPassword" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
+          </div>
+          <div class="pw-meter" id="pwMeter"><span></span></div>
+          <small class="field-error"></small>
+        </label>
+
+        <label class="field">
+          <span>Confirm password</span>
+          <input type="password" name="confirmPassword" placeholder="Re-enter your password" required id="confirmPassword">
+          <small class="field-error"></small>
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" name="terms" required>
+          <span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></span>
+        </label>
+
+        <button type="submit" class="btn btn-lime btn-full">Create account</button>
+        <p class="form-note" id="signupNote" aria-live="polite"></p>
+      </form>
+
+      <div class="auth-divider"><span>or continue with</span></div>
+
+      <div class="auth-social">
+        <button type="button" class="btn btn-outline btn-full"><i class="fa-brands fa-google"></i> Google</button>
+        <button type="button" class="btn btn-outline btn-full"><i class="fa-brands fa-apple"></i> Apple</button>
+      </div>
+
+      <p class="auth-switch">Already a member? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
