@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Stackly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lime:#a4e94a;
+    --lime-dark:#8fd431;
+    --forest:#1c3a35;
+    --forest-deep:#152b27;
+    --cream:#f6f4ee;
+    --ease:cubic-bezier(.22,.68,0,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--forest);
+    color:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px;}
+
+  /* subtle court lines */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 0 168px, rgba(164,233,74,.08) 168px 170px, transparent 170px),
+      linear-gradient(90deg, transparent calc(50% - 1px), rgba(164,233,74,.08) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px));
+  }
+
+  header{
+    position:relative;z-index:2;
+    padding:1.3rem 1.5rem;
+    display:flex;align-items:center;justify-content:space-between;
+    max-width:1200px;width:100%;margin:0 auto;
+  }
+  .logo{
+    display:flex;align-items:center;gap:.6rem;
+    font-family:'Anton',sans-serif;font-size:1.15rem;
+    text-transform:uppercase;letter-spacing:.04em;color:var(--cream);
+  }
+  .logo svg{transition:transform .5s var(--ease);}
+  .logo:hover svg{transform:rotate(-14deg) scale(1.08);}
+
+  main{
+    position:relative;z-index:1;
+    flex:1;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:1rem 1.5rem 3rem;
+  }
+
+  /* 4 [ball] 4 */
+  .ball-container{
+      width: 200px;
+      height: 200px;
+  }
+  .ball-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: rolling 5s linear infinite;
+  }
+  
+  @keyframes rolling {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform:  rotate(720deg);
+  }
+}
+  .code{
+    display:flex;align-items:flex-end;justify-content:center;
+    gap:clamp(.2rem,1.5vw,.8rem);
+    font-family:'Anton',sans-serif;
+    font-size:clamp(7rem,28vw,17rem);
+    line-height:.85;
+    color:var(--lime);
+    margin-bottom:.5rem;
+    user-select:none;
+  }
+
+  .ball{
+    width:100%;height:100%;
+    border:0;padding:0;background:none;cursor:pointer;
+  }
+  
+
+  h1{
+    font-family:'Anton',sans-serif;font-weight:400;
+    text-transform:uppercase;letter-spacing:.5px;line-height:1.05;
+    font-size:clamp(1.7rem,5vw,2.6rem);
+    margin:0 0 .9rem;
+  }
+  .lead{
+    color:rgba(246,244,238,.78);
+    max-width:46ch;margin:0 auto;
+    font-size:1rem;line-height:1.6;
+  }
+
+  .actions{
+    display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;
+    margin-top:2rem;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+    padding:.9em 1.7em;border-radius:10px;
+    font-family:inherit;font-weight:700;font-size:.9rem;
+    letter-spacing:.03em;text-transform:uppercase;
+    border:1.5px solid transparent;cursor:pointer;
+    position:relative;overflow:hidden;
+    transition:transform .35s var(--ease), background .3s ease, color .3s ease;
+  }
+  .btn:hover{transform:translateY(-3px);}
+  .btn-lime{background:var(--lime);color:var(--forest);}
+  .btn-lime:hover{background:var(--lime-dark);}
+  .btn-lime::after{
+    content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);
+    transform:skewX(-20deg);transition:left .6s var(--ease);
+  }
+  .btn-lime:hover::after{left:130%;}
+  .btn-outline{background:transparent;border-color:rgba(246,244,238,.5);color:var(--cream);}
+  .btn-outline:hover{background:var(--cream);color:var(--forest);}
+
+  .quick{
+    margin-top:2.6rem;
+    display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;
+    font-size:.9rem;color:rgba(246,244,238,.65);
+    align-items:center;
+  }
+  .quick a{
+    padding:.35em .9em;border-radius:999px;
+    background:rgba(246,244,238,.08);
+    font-weight:600;color:var(--cream);
+    transition:background .3s ease, color .3s ease;
+  }
+  .quick a:hover{background:var(--lime);color:var(--forest);}
+
+  .score{
+    margin-top:1.6rem;min-height:1.4em;
+    font-size:.85rem;color:var(--lime);font-weight:600;
+  }
+
+  footer{
+    position:relative;z-index:1;
+    text-align:center;padding:1.4rem 1rem;
+    font-size:.8rem;color:rgba(246,244,238,.5);
+  }
+
+  /* entrance */
+  .rise{opacity:0;transform:translateY(24px);animation:rise .8s var(--ease) forwards;}
+  .rise:nth-child(2){animation-delay:.12s;}
+  .rise:nth-child(3){animation-delay:.24s;}
+  .rise:nth-child(4){animation-delay:.36s;}
+  .rise:nth-child(5){animation-delay:.48s;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+
+  @media (max-width:480px){
+    header{padding:1rem;}
+    .actions{flex-direction:column;width:100%;max-width:320px;}
+    .actions .btn{width:100%;}
+    .lead{font-size:.95rem;}
+  }
+  @media (max-height:560px) and (orientation:landscape){
+    .code{font-size:26vh;}
+    .quick{margin-top:1.4rem;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+    .rise{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo" aria-label="Stackly home">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
+      <path d="M3 20C3 20 9 24 15 21" stroke="#1B3B36" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <span>Stackly</span>
+  </a>
+</header>
+
+<main>
+  <div class="code rise" aria-label="Error 404">
+    <span>4</span>
+    <span class="ball-wrap">
+      <button class="ball" id="ball" type="button" aria-label="Kick the ball">
+        <div class="ball-container">
+          <img src="./ball/ball.webp" alt="" class="ball">
+        </div>
+      </button>
+      <span class="shadow"></span>
+    </span>
+    <span>4</span>
+  </div>
+
+  <h1 class="rise">Offside! Page not found.</h1>
+  <p class="lead rise">The page you're looking for was moved, renamed, or never made it onto the field. Head back to the pitch and pick up from there.</p>
+
+  <div class="actions rise">
+    <a href="index.html" class="btn btn-lime">Back to home</a>
+    <a href="contact.html" class="btn btn-outline">Contact us</a>
+  </div>
+
+  <nav class="quick rise" aria-label="Helpful links">
+    <span>Or try:</span>
+    <a href="about.html">About</a>
+    <a href="service.html">Service</a>
+    <a href="blog.html">Blog</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+  <p class="score" id="score" aria-live="polite">Tip: tap the ball.</p>
+</main>
+
+<footer>© 2026 Stackly. All rights reserved.</footer>
+
+<script>
+  (function () {
+    var ball = document.getElementById('ball');
+    var score = document.getElementById('score');
+    var kicks = 0;
+    var messages = [
+      'Nice touch!',
+      'Keep it up!',
+      'Top corner!',
+      'What a strike!',
+      'Hat-trick!',
+      'You should try out for the U14s.'
+    ];
+
+    ball.addEventListener('click', function () {
+      kicks++;
+      ball.classList.remove('kick');
+      void ball.offsetWidth; // restart animation
+      ball.classList.add('kick');
+      var msg = messages[Math.min(kicks - 1, messages.length - 1)];
+      score.textContent = 'Kicks: ' + kicks + ' — ' + msg;
+    });
+
+    ball.addEventListener('animationend', function (e) {
+      if (e.animationName === 'kick') ball.classList.remove('kick');
+    });
+  })();
+</script>
+</body>
+</html>

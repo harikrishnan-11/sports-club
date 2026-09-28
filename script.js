@@ -111,22 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- Contact form (demo only) ---------- */
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const note = document.getElementById('contactFormNote');
-      note.textContent = "Thanks — we'll be in touch within one business day.";
-      contactForm.reset();
-    });
-  }
+  // const contactForm = document.getElementById('contactForm');
+  // if (contactForm) {
+  //   contactForm.addEventListener('submit', (e) => {
+  //     e.preventDefault();
+  //     const note = document.getElementById('contactFormNote');
+  //     note.textContent = "Thanks — we'll be in touch within one business day.";
+  //     contactForm.reset();
+  //   });
+  // }
 
   /* ---------- Newsletter form (demo only) ---------- */
   const newsletterForm = document.getElementById('newsletterForm');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const input = newsletterForm.querySelector('input');
+      const input = newsletterForm.querySelector('input').value.trim();
       const button = newsletterForm.querySelector('button');
       if (input.value) {
         button.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -167,121 +167,121 @@ document.addEventListener('DOMContentLoaded', () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
-  /* ---------- Login form ---------- */
-  const loginForm = document.getElementById('loginForm');
-  if (loginForm) {
-    loginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = loginForm.email;
-      const password = loginForm.password;
-      const note = document.getElementById('loginNote');
-      let ok = true;
+  // /* ---------- Login form ---------- */
+  // const loginForm = document.getElementById('loginForm');
+  // if (loginForm) {
+  //   loginForm.addEventListener('submit', (e) => {
+  //     e.preventDefault();
+  //     const email = loginForm.email;
+  //     const password = loginForm.password;
+  //     const note = document.getElementById('loginNote');
+  //     let ok = true;
 
-      if (!email.value.trim()) {
-        setFieldError(email, 'Enter your email address.'); ok = false;
-      } else if (!isValidEmail(email.value.trim())) {
-        setFieldError(email, 'Enter a valid email address.'); ok = false;
-      } else {
-        setFieldError(email, '');
-      }
+  //     if (!email.value.trim()) {
+  //       setFieldError(email, 'Enter your email address.'); ok = false;
+  //     } else if (!isValidEmail(email.value.trim())) {
+  //       setFieldError(email, 'Enter a valid email address.'); ok = false;
+  //     } else {
+  //       setFieldError(email, '');
+  //     }
 
-      if (!password.value || password.value.length < 6) {
-        setFieldError(password, 'Password must be at least 6 characters.'); ok = false;
-      } else {
-        setFieldError(password, '');
-      }
+  //     if (!password.value || password.value.length < 6) {
+  //       setFieldError(password, 'Password must be at least 6 characters.'); ok = false;
+  //     } else {
+  //       setFieldError(password, '');
+  //     }
 
-      if (!ok) {
-        note.style.color = '#d64545';
-        note.textContent = 'Please fix the highlighted fields.';
-        return;
-      }
+  //     if (!ok) {
+  //       note.style.color = '#d64545';
+  //       note.textContent = 'Please fix the highlighted fields.';
+  //       return;
+  //     }
 
-      note.style.color = 'var(--forest)';
-      note.textContent = "You're logged in! Redirecting to your dashboard…";
-      loginForm.querySelector('button[type="submit"]').disabled = true;
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 1200);
-    });
-  }
+  //     note.style.color = 'var(--forest)';
+  //     note.textContent = "You're logged in! Redirecting to your dashboard…";
+  //     loginForm.querySelector('button[type="submit"]').disabled = true;
+  //     setTimeout(() => {
+  //       window.location.href = 'index.html';
+  //     }, 1200);
+  //   });
+  // }
 
-  /* ---------- Signup form ---------- */
-  const signupForm = document.getElementById('signupForm');
-  if (signupForm) {
-    const passwordInput = document.getElementById('signupPassword');
-    const meterBar = document.querySelector('#pwMeter span');
+  // /* ---------- Signup form ---------- */
+  // const signupForm = document.getElementById('signupForm');
+  // if (signupForm) {
+  //   const passwordInput = document.getElementById('signupPassword');
+  //   const meterBar = document.querySelector('#pwMeter span');
 
-    if (passwordInput && meterBar) {
-      passwordInput.addEventListener('input', () => {
-        const val = passwordInput.value;
-        let score = 0;
-        if (val.length >= 8) score++;
-        if (/[A-Z]/.test(val)) score++;
-        if (/[0-9]/.test(val)) score++;
-        if (/[^A-Za-z0-9]/.test(val)) score++;
-        const pct = [0, 25, 50, 75, 100][score];
-        const colors = ['#d64545', '#d64545', '#e0a83c', '#8fd431', 'var(--lime-dark)'];
-        meterBar.style.width = pct + '%';
-        meterBar.style.background = colors[score];
-      });
-    }
+  //   if (passwordInput && meterBar) {
+  //     passwordInput.addEventListener('input', () => {
+  //       const val = passwordInput.value;
+  //       let score = 0;
+  //       if (val.length >= 8) score++;
+  //       if (/[A-Z]/.test(val)) score++;
+  //       if (/[0-9]/.test(val)) score++;
+  //       if (/[^A-Za-z0-9]/.test(val)) score++;
+  //       const pct = [0, 25, 50, 75, 100][score];
+  //       const colors = ['#d64545', '#d64545', '#e0a83c', '#8fd431', 'var(--lime-dark)'];
+  //       meterBar.style.width = pct + '%';
+  //       meterBar.style.background = colors[score];
+  //     });
+  //   }
 
-    signupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const firstName = signupForm.firstName;
-      const lastName = signupForm.lastName;
-      const email = signupForm.email;
-      const password = signupForm.password;
-      const confirmPassword = signupForm.confirmPassword;
-      const terms = signupForm.terms;
-      const note = document.getElementById('signupNote');
-      let ok = true;
+  //   signupForm.addEventListener('submit', (e) => {
+  //     e.preventDefault();
+  //     const firstName = signupForm.firstName;
+  //     const lastName = signupForm.lastName;
+  //     const email = signupForm.email;
+  //     const password = signupForm.password;
+  //     const confirmPassword = signupForm.confirmPassword;
+  //     const terms = signupForm.terms;
+  //     const note = document.getElementById('signupNote');
+  //     let ok = true;
 
-      if (!firstName.value.trim()) { setFieldError(firstName, 'Enter your first name.'); ok = false; }
-      else setFieldError(firstName, '');
+  //     if (!firstName.value.trim()) { setFieldError(firstName, 'Enter your first name.'); ok = false; }
+  //     else setFieldError(firstName, '');
 
-      if (!lastName.value.trim()) { setFieldError(lastName, 'Enter your last name.'); ok = false; }
-      else setFieldError(lastName, '');
+  //     if (!lastName.value.trim()) { setFieldError(lastName, 'Enter your last name.'); ok = false; }
+  //     else setFieldError(lastName, '');
 
-      if (!email.value.trim()) { setFieldError(email, 'Enter your email address.'); ok = false; }
-      else if (!isValidEmail(email.value.trim())) { setFieldError(email, 'Enter a valid email address.'); ok = false; }
-      else setFieldError(email, '');
+  //     if (!email.value.trim()) { setFieldError(email, 'Enter your email address.'); ok = false; }
+  //     else if (!isValidEmail(email.value.trim())) { setFieldError(email, 'Enter a valid email address.'); ok = false; }
+  //     else setFieldError(email, '');
 
-      if (!password.value || password.value.length < 8) {
-        setFieldError(password, 'Password must be at least 8 characters.'); ok = false;
-      } else {
-        setFieldError(password, '');
-      }
+  //     if (!password.value || password.value.length < 8) {
+  //       setFieldError(password, 'Password must be at least 8 characters.'); ok = false;
+  //     } else {
+  //       setFieldError(password, '');
+  //     }
 
-      if (confirmPassword.value !== password.value || !confirmPassword.value) {
-        setFieldError(confirmPassword, 'Passwords do not match.'); ok = false;
-      } else {
-        setFieldError(confirmPassword, '');
-      }
+  //     if (confirmPassword.value !== password.value || !confirmPassword.value) {
+  //       setFieldError(confirmPassword, 'Passwords do not match.'); ok = false;
+  //     } else {
+  //       setFieldError(confirmPassword, '');
+  //     }
 
-      if (!terms.checked) {
-        note.style.color = '#d64545';
-        note.textContent = 'Please accept the Terms and Privacy Policy to continue.';
-        ok = false;
-      }
+  //     if (!terms.checked) {
+  //       note.style.color = '#d64545';
+  //       note.textContent = 'Please accept the Terms and Privacy Policy to continue.';
+  //       ok = false;
+  //     }
 
-      if (!ok) {
-        if (terms.checked) {
-          note.style.color = '#d64545';
-          note.textContent = 'Please fix the highlighted fields.';
-        }
-        return;
-      }
+  //     if (!ok) {
+  //       if (terms.checked) {
+  //         note.style.color = '#d64545';
+  //         note.textContent = 'Please fix the highlighted fields.';
+  //       }
+  //       return;
+  //     }
 
-      note.style.color = 'var(--forest)';
-      note.textContent = 'Account created! Redirecting you to log in…';
-      signupForm.querySelector('button[type="submit"]').disabled = true;
-      setTimeout(() => {
-        window.location.href = 'login.html';
-      }, 1200);
-    });
-  }
+  //     note.style.color = 'var(--forest)';
+  //     note.textContent = 'Account created! Redirecting you to log in…';
+  //     signupForm.querySelector('button[type="submit"]').disabled = true;
+  //     setTimeout(() => {
+  //       window.location.href = 'login.html';
+  //     }, 1200);
+  //   });
+  // }
 
   onScroll();
 });

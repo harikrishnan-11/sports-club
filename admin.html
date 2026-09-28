@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <title>Admin Dashboard — Stackly Sports Club</title>
+</head>
+<body class="dashboard-body">
+
+    <div class="dash-shell">
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <a href="index.html" class="logo">
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#a4e94a"/>
+                        <path d="M3 20C3 20 9 24 15 21" stroke="#1c3a35" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <span>Stackly</span>
+                </a>
+                <button class="sidebar-close" id="sidebarClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="sidebar-user">
+                <div class="sidebar-avatar">HK</div>
+                <div>
+                    <p class="sidebar-user-name">Hari Krishnan</p>
+                    <p class="sidebar-user-email">hari@stackly.com</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-label">Club Operations</p>
+                <a href="#overview" class="nav-link active" data-section="overview"><i class="fa-solid fa-grip"></i> Overview</a>
+                <a href="#clients" class="nav-link" data-section="clients"><i class="fa-solid fa-user-group"></i> Members</a>
+                <a href="#staff" class="nav-link" data-section="staff"><i class="fa-solid fa-whistle"></i> Coaches &amp; Staff</a>
+                <a href="#requests" class="nav-link" data-section="requests"><i class="fa-solid fa-file-invoice-dollar"></i> Billing</a>
+                <a href="#departments" class="nav-link" data-section="departments"><i class="fa-solid fa-trophy"></i> Programs &amp; Plans</a>
+
+                <p class="nav-label">Insights</p>
+                <a href="#analytics" class="nav-link" data-section="analytics"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+                <a href="#reports" class="nav-link" data-section="reports"><i class="fa-solid fa-file-lines"></i> Reports</a>
+
+                <p class="nav-label">Account</p>
+                <a href="#settings" class="nav-link" data-section="settings"><i class="fa-solid fa-gear"></i> Settings</a>
+                <a href="./login.html" class="nav-link nav-link-danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</a>
+            </nav>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- ============ MAIN ============ -->
+        <div class="dash-main">
+
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+                <div class="topbar-search">Club Admin Dashboard</div>
+                <div class="topbar-actions">
+                    <div class="topbar-user">
+                        <div class="topbar-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="topbar-user-text">
+                            <p class="topbar-user-name">Admin</p>
+                            <p class="topbar-user-email"><span id="dashboardEmail"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ============ OVERVIEW ============ -->
+            <section class="dash-section active" id="overview">
+                <div class="section-head">
+                    <div>
+                        <h1>Club Overview</h1>
+                        <p class="section-sub">Real-time activity across programs, members, coaches, and billing.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">New Invoice <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                        <h3>$186K</h3>
+                        <p>Revenue (YTD)</p>
+                        <span class="kpi-trend kpi-trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 12.4%</span>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-basketball"></i></span>
+                        <h3>46</h3>
+                        <p>Classes running this week</p>
+                        <span class="kpi-trend kpi-trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 6.1%</span>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-people-group"></i></span>
+                        <h3>2,400</h3>
+                        <p>Active members</p>
+                        <span class="kpi-trend kpi-trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 3.8%</span>
+                    </div>
+                    <div class="kpi-card">
+                        <span class="kpi-icon"><i class="fa-solid fa-star"></i></span>
+                        <h3>4.9</h3>
+                        <p>Family satisfaction</p>
+                        <span class="kpi-trend kpi-trend-up"><i class="fa-solid fa-arrow-trend-up"></i> 0.2%</span>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <a href="./404.html" class="quick-action"><span class="quick-action-icon"><i class="fa-solid fa-calendar-plus"></i></span>New Invoice</a>
+                    <a href="./404.html" class="quick-action"><span class="quick-action-icon"><i class="fa-solid fa-receipt"></i></span>Send Reminder</a>
+                    <a href="./404.html" class="quick-action"><span class="quick-action-icon"><i class="fa-solid fa-file-lines"></i></span>Generate Report</a>
+                    <a href="./404.html" class="quick-action"><span class="quick-action-icon"><i class="fa-solid fa-envelope"></i></span>Member Newsletter</a>
+                </div>
+
+                <div class="content-grid overview-charts">
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Revenue &amp; attendance trend</h2>
+                            <div class="panel-head-actions">
+                                <span class="chart-legend-inline"><span class="dot-swatch" style="--c:var(--lime-dark)"></span>Revenue</span>
+                                <span class="chart-legend-inline"><span class="dot-swatch dot-swatch-line" style="--c:var(--primary)"></span>Attendance</span>
+                            </div>
+                        </div>
+                        <div class="line-chart-wrap">
+                            <svg class="line-chart" viewBox="0 0 560 220" preserveAspectRatio="none" role="img" aria-label="Revenue and attendance trend over the last 7 months">
+                                <g class="line-chart-grid">
+                                    <line x1="0" y1="10" x2="560" y2="10"></line>
+                                    <line x1="0" y1="62" x2="560" y2="62"></line>
+                                    <line x1="0" y1="114" x2="560" y2="114"></line>
+                                    <line x1="0" y1="166" x2="560" y2="166"></line>
+                                    <line x1="0" y1="200" x2="560" y2="200"></line>
+                                </g>
+                                <polygon class="line-chart-area" points="0,140 93,120 186,150 280,86 373,110 466,58 560,20 560,200 0,200"></polygon>
+                                <polyline class="line-chart-path line-chart-path-revenue" points="0,140 93,120 186,150 280,86 373,110 466,58 560,20"></polyline>
+                                <polyline class="line-chart-path line-chart-path-orders" points="0,176 93,168 186,178 280,150 373,158 466,132 560,104"></polyline>
+                                <g class="line-chart-dots"><circle cx="560" cy="20" r="5"></circle></g>
+                            </svg>
+                            <div class="line-chart-labels">
+                                <span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head"><h2>Invoice status split</h2></div>
+                        <div class="donut-wrap">
+                            <div class="donut-chart" style="--p1:65; --p2:20; --p3:15;">
+                                <div class="donut-center"><strong>18</strong><span>invoices</span></div>
+                            </div>
+                            <ul class="legend-list donut-legend">
+                                <li><span class="legend-dot" style="--c:var(--primary)"></span> Paid <strong>65%</strong></li>
+                                <li><span class="legend-dot" style="--c:var(--lime)"></span> Upcoming <strong>20%</strong></li>
+                                <li><span class="legend-dot" style="--c:var(--teal)"></span> Pending <strong>15%</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Recent invoices</h2>
+                            <a href="./404.html" class="link-read">Export <i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Invoice ID</th><th>Member</th><th>Plan / Program</th><th>Amount</th><th>Status</th><th></th></tr></thead>
+                                <tbody>
+                                    <tr><td>#INV-4921</td><td>Priya Nandakumar</td><td>All-Access — Monthly Membership</td><td>$79</td><td><span class="status status-transit">Upcoming</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                                    <tr><td>#INV-4918</td><td>Anitha Menon</td><td>Family Plan — Annual Renewal</td><td>$1,290</td><td><span class="status status-delivered">Paid</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                                    <tr><td>#INV-4902</td><td>Dr. S. Iyer</td><td>Starter Plan — Upgrade Invoice</td><td>$50</td><td><span class="status status-pending">Pending</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                                    <tr><td>#INV-4897</td><td>Priya Venkat</td><td>Fall Soccer U12 — Registration</td><td>$240</td><td><span class="status status-transit">Upcoming</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head">
+                            <h2>Club activity</h2>
+                            <a href="./404.html" class="link-read">View all</a>
+                        </div>
+                        <ul class="activity-feed">
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-transit"><i class="fa-solid fa-user-plus"></i></span>
+                                <div><p><strong>Priya Venkat</strong> joined the club as a new member</p><span class="activity-time">1 hour ago</span></div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-delivered"><i class="fa-solid fa-circle-check"></i></span>
+                                <div><p><strong>Anitha Menon's</strong> invoice #INV-4918 was paid</p><span class="activity-time">4 hours ago</span></div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-pending"><i class="fa-solid fa-star"></i></span>
+                                <div><p><strong>Ravi Kumar</strong> left 5-star feedback on Family Swim Night</p><span class="activity-time">Yesterday</span></div>
+                            </li>
+                            <li class="activity-item">
+                                <span class="activity-icon activity-icon-transit"><i class="fa-solid fa-file-lines"></i></span>
+                                <div><p><strong>Priya Nair</strong> generated the monthly attendance report</p><span class="activity-time">Yesterday</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ MEMBERS ============ -->
+            <section class="dash-section" id="clients">
+                <div class="section-head">
+                    <div>
+                        <h1>Members</h1>
+                        <p class="section-sub">All member accounts across every membership plan.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Add Member <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-users"></i></span><h3>2,400</h3><p>Total members</p></div>
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-user-check"></i></span><h3>2,096</h3><p>Active members</p></div>
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-user-clock"></i></span><h3>52</h3><p>New members this week</p></div>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Active</button>
+                    <button class="filter-tab">Trial</button>
+                    <button class="filter-tab">New This Month</button>
+                </div>
+
+                <div class="panel">
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>Name</th><th>Email</th><th>Plan Tier</th><th>Status</th><th></th></tr></thead>
+                            <tbody>
+                                <tr><td>Ravi Kumar</td><td>ravi@stackly.com</td><td><span class="role-badge role-admin">Family</span></td><td><span class="status status-delivered">Active</span></td><td><a href="./404.html" class="link-read">Manage</a></td></tr>
+                                <tr><td>Anitha Menon</td><td>anitha@stackly.com</td><td><span class="role-badge role-customer">Starter</span></td><td><span class="status status-delivered">Active</span></td><td><a href="./404.html" class="link-read">Manage</a></td></tr>
+                                <tr><td>Dr. S. Iyer</td><td>s.iyer@stackly.com</td><td><span class="role-badge role-customer">All-Access</span></td><td><span class="status status-pending">Trial</span></td><td><a href="./404.html" class="link-read">Manage</a></td></tr>
+                                <tr><td>Priya Venkat</td><td>priya@stackly.com</td><td><span class="role-badge role-customer">All-Access</span></td><td><span class="status status-delivered">Active</span></td><td><a href="./404.html" class="link-read">Manage</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ COACHES & STAFF ============ -->
+            <section class="dash-section" id="staff">
+                <div class="section-head">
+                    <div>
+                        <h1>Coaches &amp; Staff</h1>
+                        <p class="section-sub">Manage coach roles and program assignments.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Add Team Member <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-whistle"></i></span><h3>46</h3><p>Certified coaches</p></div>
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-sitemap"></i></span><h3>6</h3><p>Programs</p></div>
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-user-clock"></i></span><h3>2</h3><p>Open coaching roles</p></div>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Soccer</button>
+                    <button class="filter-tab">Aquatics</button>
+                    <button class="filter-tab">Fitness</button>
+                </div>
+
+                <div class="team-dash-grid">
+                    <div class="team-dash-card"><div class="team-dash-avatar">HK</div><h3>Hari Krishnan</h3><p>Club Director</p><a href="./404.html" class="link-read">View profile</a></div>
+                    <div class="team-dash-card"><div class="team-dash-avatar">MS</div><h3>Mike Sanders</h3><p>Soccer Director</p><a href="./404.html" class="link-read">View profile</a></div>
+                    <div class="team-dash-card"><div class="team-dash-avatar">JR</div><h3>Jenna Reyes</h3><p>Aquatics Lead</p><a href="./404.html" class="link-read">View profile</a></div>
+                    <div class="team-dash-card"><div class="team-dash-avatar">AT</div><h3>Alex Turner</h3><p>Volleyball Head Coach</p><a href="./404.html" class="link-read">View profile</a></div>
+                    <div class="team-dash-card"><div class="team-dash-avatar">PN</div><h3>Priya Nair</h3><p>Fitness Trainer</p><a href="./404.html" class="link-read">View profile</a></div>
+                    <div class="team-dash-card"><div class="team-dash-avatar">DS</div><h3>Divya Shah</h3><p>Youth Safeguarding Lead</p><a href="./404.html" class="link-read">View profile</a></div>
+                </div>
+            </section>
+
+            <!-- ============ BILLING ============ -->
+            <section class="dash-section" id="requests">
+                <div class="section-head">
+                    <div>
+                        <h1>Billing</h1>
+                        <p class="section-sub">All invoices generated for members, across every plan and program.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">New Invoice <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-hourglass-half"></i></span><h3>7</h3><p>Pending Review</p></div>
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-calendar-check"></i></span><h3>1,096</h3><p>Active Memberships</p></div>
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-circle-check"></i></span><h3>142</h3><p>Invoices Paid this year</p></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>All invoices</h2>
+                        <a href="./404.html" class="link-read">Filter <i class="fa-solid fa-sliders"></i></a>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>Invoice ID</th><th>Member</th><th>Plan</th><th>Amount</th><th>Payment Method</th><th>Status</th><th></th></tr></thead>
+                            <tbody>
+                                <tr><td>#INV-4921</td><td>Ravi Kumar</td><td>Family Plan</td><td>$129</td><td><span class="status status-delivered">Card on File</span></td><td><span class="status status-transit">Upcoming</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                                <tr><td>#INV-4918</td><td>Anitha Menon</td><td>Family Plan</td><td>$1,290</td><td><span class="status status-delivered">Card on File</span></td><td><span class="status status-delivered">Paid</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                                <tr><td>#INV-4902</td><td>Dr. S. Iyer</td><td>All-Access Plan</td><td>$79</td><td><span class="status status-pending">Payment Pending</span></td><td><span class="status status-pending">Pending Review</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                                <tr><td>#INV-4897</td><td>Priya Venkat</td><td>All-Access Plan</td><td>$79</td><td><span class="status status-delivered">Card on File</span></td><td><span class="status status-transit">Upcoming</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                                <tr><td>#INV-4889</td><td>Carlos Rivera</td><td>Starter Plan</td><td>$29</td><td><span class="status status-delivered">Card on File</span></td><td><span class="status status-delivered">Paid</span></td><td><a href="./404.html" class="link-read">View</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ PROGRAMS & PLANS ============ -->
+            <section class="dash-section" id="departments">
+                <div class="section-head">
+                    <div>
+                        <h1>Programs &amp; Plans</h1>
+                        <p class="section-sub">Manage club programs, membership plans, and published class schedules.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Add Program <i class="fa-solid fa-plus"></i></a>
+                </div>
+
+                <div class="kpi-grid kpi-grid-3">
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-trophy"></i></span><h3>6</h3><p>Programs</p></div>
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-circle-check"></i></span><h3>1,842</h3><p>Active enrolments</p></div>
+                    <div class="kpi-card"><span class="kpi-icon"><i class="fa-solid fa-triangle-exclamation"></i></span><h3>7</h3><p>Waitlisted classes</p></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Most popular programs this season</h2>
+                        <a href="./404.html" class="link-read">View all</a>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>Program</th><th>Led By</th><th>Session Length</th><th>Enrolments</th><th>Revenue Generated</th><th></th></tr></thead>
+                            <tbody>
+                                <tr><td>Soccer</td><td>Mike Sanders</td><td>12 weeks</td><td>312</td><td>$74,880</td><td><a href="./404.html" class="link-read">Edit</a></td></tr>
+                                <tr><td>Aquatics</td><td>Jenna Reyes</td><td>12 weeks</td><td>268</td><td>$61,640</td><td><a href="./404.html" class="link-read">Edit</a></td></tr>
+                                <tr><td>Fitness</td><td>Priya Nair</td><td>Ongoing</td><td>190</td><td>$43,700</td><td><a href="./404.html" class="link-read">Edit</a></td></tr>
+                                <tr><td>Volleyball</td><td>Alex Turner</td><td>12 weeks</td><td>141</td><td>$28,200</td><td><a href="./404.html" class="link-read">Edit</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ ANALYTICS ============ -->
+            <section class="dash-section" id="analytics">
+                <div class="section-head">
+                    <div>
+                        <h1>Analytics</h1>
+                        <p class="section-sub">Club performance across revenue, class attendance, and family satisfaction.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">Export Report <i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head"><h2>Revenue per month</h2><a href="./404.html" class="link-read">Last 6 months</a></div>
+                        <div class="bar-chart">
+                            <div class="bar-col"><span class="bar" style="--h:48%"></span><label>Apr</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:62%"></span><label>May</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:41%"></span><label>Jun</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:76%"></span><label>Jul</label></div>
+                            <div class="bar-col"><span class="bar" style="--h:59%"></span><label>Aug</label></div>
+                            <div class="bar-col"><span class="bar bar-current" style="--h:94%"></span><label>Sep</label></div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head"><h2>Revenue by program</h2></div>
+                        <ul class="legend-list">
+                            <li><span class="legend-dot" style="--c:var(--primary)"></span> Soccer <strong>38%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--lime)"></span> Aquatics <strong>27%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--teal)"></span> Fitness <strong>21%</strong></li>
+                            <li><span class="legend-dot" style="--c:var(--text-light)"></span> Camps &amp; other <strong>14%</strong></li>
+                        </ul>
+                        <div class="legend-bar">
+                            <span style="--w:38%; --c:var(--primary)"></span>
+                            <span style="--w:27%; --c:var(--lime)"></span>
+                            <span style="--w:21%; --c:var(--teal)"></span>
+                            <span style="--w:14%; --c:var(--text-light)"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ REPORTS ============ -->
+            <section class="dash-section" id="reports">
+                <div class="section-head">
+                    <div>
+                        <h1>Reports</h1>
+                        <p class="section-sub">Generate and download club performance reports.</p>
+                    </div>
+                    <a href="./404.html" class="btn-primary">New Report <i class="fa-solid fa-plus"></i></a>
+                </div>
+                <div class="panel">
+                    <div class="panel-head"><h2>Generated reports</h2></div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>Report</th><th>Type</th><th>Generated</th><th>Size</th><th></th></tr></thead>
+                            <tbody>
+                                <tr><td>Monthly Billing Summary — August</td><td>Finance</td><td>Sep 01, 2026</td><td>1.4 MB</td><td><a href="./404.html" class="link-read">Download</a></td></tr>
+                                <tr><td>Class Attendance Report — Q3</td><td>Operations</td><td>Sep 05, 2026</td><td>920 KB</td><td><a href="./404.html" class="link-read">Download</a></td></tr>
+                                <tr><td>Family Satisfaction Survey</td><td>Community</td><td>Aug 22, 2026</td><td>780 KB</td><td><a href="./404.html" class="link-read">Download</a></td></tr>
+                                <tr><td>Coach Certification Status</td><td>Compliance</td><td>Aug 01, 2026</td><td>520 KB</td><td><a href="./404.html" class="link-read">Download</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ SETTINGS ============ -->
+            <section class="dash-section" id="settings">
+                <div class="section-head">
+                    <div>
+                        <h1>Settings</h1>
+                        <p class="section-sub">Club admin configuration and preferences.</p>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-head"><h2>Profile</h2></div>
+                        <form class="settings-form" id="settingsForm">
+                            <div class="form-grid">
+                                <div class="field"><label for="sName">Full name</label><input type="text" id="sName" value="" /></div>
+                                <div class="field"><label for="sEmail">Email</label><input type="email" id="sEmail" value="" /></div>
+                                <div class="field"><label for="sPhone">Phone</label><input type="tel" id="sPhone" placeholder="Add phone number" /></div>
+                                <div class="field"><label for="sRole">Role</label><input type="text" id="sRole" value="Admin — Club Director" disabled /></div>
+                            </div>
+                            <button type="submit" class="btn-primary">Save changes <i class="fa-solid fa-check"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-head"><h2>Club preferences</h2></div>
+                        <div class="toggle-row">
+                            <div><p class="toggle-title">New invoice alerts</p><p class="toggle-sub">Email when a new invoice is generated for a member</p></div>
+                            <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div><p class="toggle-title">Membership renewal alerts</p><p class="toggle-sub">Notify when a member's renewal date is approaching</p></div>
+                            <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <div><p class="toggle-title">Weekly club digest</p><p class="toggle-sub">Summary of billing, attendance, and member activity</p></div>
+                            <label class="switch"><input type="checkbox" checked /><span class="slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebarClose = document.getElementById('sidebarClose');
+  const navLinks = document.querySelectorAll('.nav-link[data-section]');
+  const sections = document.querySelectorAll('.dash-section');
+
+  /* ---------- Mobile sidebar open/close ---------- */
+  const openSidebar = () => { sidebar.classList.add('open'); overlay.classList.add('show'); };
+  const closeSidebar = () => { sidebar.classList.remove('open'); overlay.classList.remove('show'); };
+  menuToggle?.addEventListener('click', openSidebar);
+  sidebarClose?.addEventListener('click', closeSidebar);
+  overlay?.addEventListener('click', closeSidebar);
+
+  /* ---------- Section routing (sidebar acts as in-page nav) ---------- */
+  const showSection = (id) => {
+    sections.forEach(sec => sec.classList.toggle('active', sec.id === id));
+    navLinks.forEach(link => link.classList.toggle('active', link.dataset.section === id));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = link.dataset.section;
+      showSection(id);
+      history.replaceState(null, '', `#${id}`);
+      closeSidebar();
+    });
+  });
+
+  const initialId = window.location.hash.replace('#', '');
+  const validIds = Array.from(sections).map(s => s.id);
+  showSection(validIds.includes(initialId) ? initialId : 'overview');
+
+  /* ---------- Filter tabs (visual state only) ---------- */
+  document.querySelectorAll('.filter-tabs').forEach(group => {
+    group.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        group.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  });
+
+  /* ---------- Settings form (demo save) ---------- */
+  const settingsForm = document.getElementById('settingsForm');
+  settingsForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = settingsForm.querySelector('button[type="submit"]');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Saved!';
+    window.setTimeout(() => { btn.innerHTML = original; }, 2000);
+  });
+
+  /* ---------- Topbar email ---------- */
+  const dashboardEmail = document.getElementById('dashboardEmail');
+  const userEmail = localStorage.getItem('stacklyUserEmail');
+  if (dashboardEmail && userEmail) dashboardEmail.textContent = userEmail;
+});
+    </script>
+</body>
+</html>

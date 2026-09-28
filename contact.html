@@ -17,13 +17,10 @@
 <!-- ===== HEADER ===== -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="index.html" class="logo">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
-        <path d="M3 20C3 20 9 24 15 21" stroke="#1B3B36" stroke-width="1.6" stroke-linecap="round"/>
-      </svg>
-      <span>Stackly</span>
+    <a href="./index.html" class="logo">
+      <img src="./logo/Untitled design (7)-compressed.webp" alt="">
     </a>
+
 
     <nav class="main-nav" id="mainNav">
       <ul>
@@ -46,7 +43,7 @@
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
   <div class="page-hero-media">
-    <img src="https://images.unsplash.com/photo-1595435934953-f2a82984de30?q=80&w=1920&auto=format&fit=crop" alt="Clay tennis court">
+    <img src="./image/photo-1529900748604-07564a03e7a6-compressed-compressed.webp" alt="Clay tennis court">
   </div>
   <div class="page-hero-copy reveal" data-reveal>
     <span class="tag">Contact</span>
@@ -65,11 +62,23 @@
     </div>
     <form class="touch-form reveal" data-reveal id="contactForm">
       <div class="form-row">
-        <input type="text" placeholder="Full name" required aria-label="Full name">
-        <input type="email" placeholder="Email address" required aria-label="Email address">
+        <div class="input-containers">
+          <input type="text" placeholder="Full name"  aria-label="Full name" id="FullName">
+          <small class="error" style="margin-left: 10px;"></small>
+        </div>
+        <div class="input-containers">
+          <input type="email" placeholder="Email address"  aria-label="Email address" id="Email">
+          <small class="error" style="margin-left: 10px;"></small>
+        </div>
       </div>
-      <input type="text" placeholder="Subject" aria-label="Subject">
-      <textarea rows="4" placeholder="Your message" required aria-label="Your message"></textarea>
+      <div class="input-containers">
+        <input type="text" placeholder="Subject" aria-label="Subject" id="Subject">
+                  <small class="error" style="margin-left: 10px;"></small>
+      </div>
+      <div class="input-containers">
+        <textarea rows="4" placeholder="Your message"  aria-label="Your message" id="textArea" maxlength="300"></textarea>
+        <small class="error" style="margin-left: 10px;"></small>
+      </div>
       <button type="submit" class="btn btn-dark">Send message</button>
       <p class="form-note" id="contactFormNote" aria-live="polite"></p>
     </form>
@@ -79,14 +88,14 @@
 <!-- ===== LOCATION / HOURS ===== -->
 <section class="location" id="location">
   <div class="location-media">
-    <img src="https://images.unsplash.com/photo-1595435934953-f2a82984de30?q=80&w=1600&auto=format&fit=crop" alt="Clay tennis court">
+    <img src="./image/photo-1595435934249-5df7ed86e1c0-compressed.webp" alt="Clay tennis court">
   </div>
   <div class="location-grid">
     <div class="location-block reveal" data-reveal>
       <span class="icon-pin"><i class="fa-solid fa-location-dot"></i></span>
       <h3>Location</h3>
       <p>2200 SW Cedar Hills Blvd.<br>Portland, Oregon 97225</p>
-      <a href="#" class="link-arrow link-arrow-light">Get directions</a>
+      <a href="./404.html" class="link-arrow link-arrow-light">Get directions</a>
     </div>
     <div class="location-block reveal" data-reveal>
       <span class="icon-pin"><i class="fa-regular fa-clock"></i></span>
@@ -117,12 +126,9 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="logo">
-        <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
-        </svg>
-        <span>More than a place to practice and play.</span>
-      </div>
+      <a href="./index.html" class="logo">
+      <img src="./logo/Untitled design (7)-compressed.webp" alt="">
+    </a>
 
       <div class="newsletter">
         <h4>Community</h4>
@@ -135,27 +141,27 @@
     </div>
 
     <div class="footer-col">
-      <h4>Programs</h4>
+      <h4>Quick links</h4>
       <ul>
-        <li><a href="service.html">Sports</a></li>
-        <li><a href="service.html">Aquatics</a></li>
-        <li><a href="service.html">Fitness</a></li>
-        <li><a href="service.html">Camps</a></li>
-        <li><a href="service.html">Rent</a></li>
-        <li><a href="service.html">Daycare</a></li>
+        <li><a href="./index.html">Home page</a></li>
+        <li><a href="./about.html">About page</a></li>
+        <li><a href="./service.html">Service page</a></li>
+        <li><a href="./blog.html">Blog page</a></li>
+        <li><a href="./contact.html">Contact page</a></li>
+        <li><a href="./login.html">Login page</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Information</h4>
       <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="login.html">Membership</a></li>
-        <li><a href="contact.html">Jobs</a></li>
-        <li><a href="blog.html">FAQ</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-        <li><a href="blog.html">News + Press</a></li>
-        <li><a href="contact.html">Sponsorships/Partnership</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./login.html">Membership</a></li>
+        <li><a href="./404.html">Jobs</a></li>
+        <li><a href="./404.html">FAQ</a></li>
+        <li><a href="./contact.html">Contacts</a></li>
+        <li><a href="./blog.html">News + Press</a></li>
+        <li><a href="./404.html">Sponsorships/Partnership</a></li>
       </ul>
     </div>
 
@@ -164,27 +170,115 @@
       <ul class="contact-list">
         <li>+ (123) 1800-567-8990</li>
         <li>contact@stackly.com</li>
-        <li>2200 SW Cedar Hills Blvd.<br>Portland, Oregon 97225</li>
+        <li>Salem.<br>TamilNadu</li>
       </ul>
-      <a href="contact.html" class="link-arrow">Get directions</a>
+      <a href="./contact.html" class="link-arrow">Get directions</a>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 Stackly. All rights reserved. <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">FAQs</a></p>
+    <p>© 2026 Stackly. All rights reserved. <a href="./404.html">Privacy</a> <a href="./404.html">Terms</a> <a href="./404.html">FAQs</a></p>
     <div class="socials">
-      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="#" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+      <a href="./404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="./404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="./404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="./404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="./404.html" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
     </div>
-    <a href="service.html" class="btn btn-lime btn-small">Schedules</a>
+    <a href="./404.html" class="btn btn-lime btn-small">Schedules</a>
   </div>
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script src="script.js"></script>
+<script>
+   const contactForm  = document.getElementById("contactForm")
+
+  if(contactForm) {
+
+    contactForm.addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      //get values
+      const email = document.getElementById("Email").value.trim();
+      const name = document.getElementById("FullName").value;
+      const Subject = document.getElementById("Subject").value;
+      const textArea = document.getElementById("textArea").value;
+
+      //Error Elements
+      const nameError = document.querySelector("#FullName + .error");
+      const emailError  = document.querySelector("#Email + .error");
+      const subError =  document.querySelector("#Subject + .error");
+      const textAreaError  =  document.querySelector("#textArea + .error");
+
+      //Success Message 
+      const message =  document.getElementById("contactFormNote")
+
+      //Clear old Errors
+      nameError.textContent = ""
+      emailError.textContent = ""
+      subError.textContent = ""
+      textAreaError.textContent = ""
+
+      let valid = true;
+
+
+      //name Validation 
+      if(name === ""){
+        nameError.textContent = " Name is required!"
+        valid = false;
+      }else if(name.length < 3){
+        nameError.textContent = " Name atleast 3 char!"
+        valid = false;
+      }else if(!/^[A-Za-z\s]+$/.test(name)){
+        nameError.textContent = "Name should be only character and spaces!"
+        valid=false;
+      }
+
+      //emailValidation 
+
+      if(email === ""){
+        emailError.textContent = "Email is required!"
+        valid = false;
+      }else if(  !/^[^\s@]+@[^\s@]+\.(com|in|gov|org|net)$/i.test(email)){
+        emailError.textContent = "Invalid Email Formate! ";
+        valid =false;
+      }
+
+      //subject validation 
+      if(Subject === ""){
+        subError.textContent = "Subject is required!."
+        valid = false;
+      }else if(Subject.length <5){
+        subError.textContent = "Subject length should be more than 5!"
+        valid = false;
+      }
+
+      //text
+      if(textArea === ""){
+        textAreaError.textContent = "Text is required!."
+        valid = false;
+      }else if ( textArea.length > 300){
+        textAreaError.textContent = "Text should be less than 300 char!"
+        valid = false;
+      }
+      
+      if(!valid){
+        message.textContent =""
+        return;
+      }
+      message.textContent = "Thanks — we'll be in touch within one business day!."
+      
+      setTimeout(() => {
+        message.textContent =""
+        contactForm.reset()
+      }, 2000);
+      
+    })
+  }
+
+</script>
 </body>
 </html>
