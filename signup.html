@@ -9,6 +9,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* red border when my JS marks a field invalid */
+.field input.error-input,
+.field select.error-input { border-color: #d64545; }
+.field input.error-input:focus { box-shadow: 0 0 0 3px rgba(214, 69, 69, .18); }
+
+/* role dropdown (only inputs are styled right now) */
+.field select {
+  width: 100%;
+  border: 1.5px solid rgba(20, 40, 30, .16);
+  border-radius: 8px;
+  padding: .85em 1em;
+  font-family: inherit;
+  font-size: .94rem;
+  background: var(--white);
+  outline: none;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.field select:focus { border-color: var(--lime-dark); box-shadow: 0 0 0 3px rgba(164, 233, 74, .22); }
+
+/* Google / Apple buttons: your .btn-outline is lime, so override it here */
+.auth-social .btn-outline {
+  background: var(--white);
+  border-color: rgba(20, 40, 30, .16);
+  color: var(--ink);
+}
+.auth-social .btn-outline:hover { background: var(--forest); color: var(--white); border-color: var(--forest); }
+</style>
 </head>
 <body class="auth-body">
 
@@ -27,7 +55,7 @@
 
 <main class="auth-wrap">
   <div class="auth-media">
-    <img src="https://images.unsplash.com/photo-1594736797933-d0b22ba52a4d?q=80&w=1400&auto=format&fit=crop" alt="Kids with a volleyball">
+    <img src="./image/GettyImages-1304188182-compressed-compressed.webp" alt="Kids with a volleyball">
     <div class="auth-media-copy">
       <span class="tag">Join the club</span>
       <h2>More than a place<br>to practice and play.</h2>
@@ -59,6 +87,16 @@
           <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
           <small class="field-error"></small>
         </label>
+
+        <label class="field">
+  <span>Role</span>
+  <select name="role" required>
+    <option value="">Select role</option>
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+  <small class="field-error"></small>
+</label>
 
         <label class="field">
           <span>Password</span>
@@ -98,5 +136,217 @@
 </main>
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById("signupForm");
+  const note = document.getElementById("signupNote");
+  const termsError = document.getElementById("termsError");
+  const meter = document.querySelector("#pwMeter span");
+
+  // Make sure the panel is visible even if script.js doesn't reveal it
+  const panel = document.querySelector(".auth-panel");
+  if (panel) panel.classList.add("in-view");
+
+  if (!form) return;
+
+  // =========================
+  // HELPERS
+  // =========================
+
+  function showError(input, message) {
+    const field = input.closest(".field");
+    field.querySelector(".field-error").textContent = message;
+    input.classList.add("error-input");
+  }
+
+  function clearErrors() {
+    form.querySelectorAll(".field-error").forEach(function (el) {
+      el.textContent = "";
+    });
+    form.querySelectorAll(".error-input").forEach(function (el) {
+      el.classList.remove("error-input");
+    });
+    termsError.textContent = "";
+    note.textContent = "";
+  }
+
+  // Score 0-4: length, upper+lower, number, symbol
+  function passwordScore(pw) {
+    let score = 0;
+    if (pw.length >= 8) score++;
+    if (/[a-z]/.test(pw) && /[A-Z]/.test(pw)) score++;
+    if (/\d/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+    return score;
+  }
+
+  // =========================
+  // PASSWORD STRENGTH METER
+  // =========================
+
+  form.password.addEventListener("input", function () {
+    const score = passwordScore(form.password.value);
+    const colors = ["#d64545", "#d64545", "#e0a32e", "#8fd431", "#3fae2a"];
+    const empty = form.password.value === "";
+    meter.style.width = empty ? "0%" : (score / 4) * 100 + "%";
+    meter.style.background = colors[score];
+  });
+
+  // Clear an error as soon as the user edits that field
+  form.querySelectorAll("input, select").forEach(function (el) {
+    el.addEventListener("input", function () {
+      el.classList.remove("error-input");
+      const field = el.closest(".field");
+      if (field) field.querySelector(".field-error").textContent = "";
+      if (el.name === "terms") termsError.textContent = "";
+    });
+  });
+
+  // =========================
+  // SUBMIT + VALIDATION
+  // =========================
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearErrors();
+
+    const firstName = form.firstName;
+    const lastName = form.lastName;
+    const email = form.email;
+    const role = form.role;
+    const password = form.password;
+    const confirmPassword = form.confirmPassword;
+    const terms = form.terms;
+    let valid = true;
+
+    // First name
+    if (firstName.value.trim() === "") {
+      showError(firstName, "First name is required");
+      valid = false;
+    } else if (!/^[A-Za-z][A-Za-z\s'.-]{1,29}$/.test(firstName.value.trim())) {
+      showError(firstName, "Use letters only (2-30 characters)");
+      valid = false;
+    }
+
+    // Last name
+    if (lastName.value.trim() === "") {
+      showError(lastName, "Last name is required");
+      valid = false;
+    } else if (!/^[A-Za-z][A-Za-z\s'.-]{0,29}$/.test(lastName.value.trim())) {
+      showError(lastName, "Use letters only");
+      valid = false;
+    }
+
+    // Email
+    const emailValue = email.value.trim();
+    if (emailValue === "") {
+      showError(email, "Email is required");
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailValue)) {
+      showError(email, "Please enter a valid email address");
+      valid = false;
+    }
+
+    // Role
+    if (role.value === "") {
+      showError(role, "Please select your role");
+      valid = false;
+    }
+
+    // Password
+    if (password.value === "") {
+      showError(password, "Password is required");
+      valid = false;
+    } else if (password.value.length < 8) {
+      showError(password, "Password must be at least 8 characters");
+      valid = false;
+    } else if (!/[A-Za-z]/.test(password.value) || !/\d/.test(password.value)) {
+      showError(password, "Include at least one letter and one number");
+      valid = false;
+    }
+
+    // Confirm password
+    if (confirmPassword.value === "") {
+      showError(confirmPassword, "Please confirm your password");
+      valid = false;
+    } else if (confirmPassword.value !== password.value) {
+      showError(confirmPassword, "Passwords do not match");
+      valid = false;
+    }
+
+    // Terms
+    if (!terms.checked) {
+      termsError.textContent = "You must accept the Terms and Privacy Policy";
+      valid = false;
+    }
+
+    // Stop + shake if invalid
+    if (!valid) {
+      const card = document.querySelector(".auth-card");
+      card.classList.remove("shake");
+      void card.offsetWidth; // restart animation
+      card.classList.add("shake");
+
+      const firstBad = form.querySelector(".error-input");
+      if (firstBad) firstBad.focus();
+      return;
+    }
+
+    // =========================
+    // SAVE ACCOUNT (demo only, no password stored)
+    // =========================
+
+    localStorage.setItem("signupUser", JSON.stringify({
+      firstName: firstName.value.trim(),
+      lastName: lastName.value.trim(),
+      email: emailValue,
+      role: role.value
+    }));
+
+    // Pre-fill the login page
+    localStorage.setItem("email", emailValue);
+    localStorage.setItem("role", role.value);
+
+    // =========================
+    // SUCCESS + REDIRECT TO LOGIN
+    // =========================
+
+    note.textContent = "Account created! Redirecting to login...";
+
+    setTimeout(function () {
+      window.location.href = "login.html";
+    }, 1200);
+  });
+
+  // =========================
+  // PASSWORD SHOW / HIDE
+  // =========================
+
+  document.querySelectorAll(".toggle-pw").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const input = document.getElementById(btn.dataset.target);
+      const icon = btn.querySelector("i");
+      const show = input.type === "password";
+
+      input.type = show ? "text" : "password";
+      icon.classList.toggle("fa-eye", !show);
+      icon.classList.toggle("fa-eye-slash", show);
+      btn.setAttribute("aria-label", show ? "Hide password" : "Show password");
+    });
+  });
+
+  // =========================
+  // SOCIAL BUTTONS
+  // =========================
+
+  document.querySelectorAll(".auth-social button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      window.location.href = "404.html";
+    });
+  });
+
+});
+</script>
 </body>
 </html>

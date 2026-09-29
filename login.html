@@ -9,6 +9,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* red border when my JS marks a field invalid */
+.field input.error-input,
+.field select.error-input { border-color: #d64545; }
+.field input.error-input:focus { box-shadow: 0 0 0 3px rgba(214, 69, 69, .18); }
+
+/* role dropdown (only inputs are styled right now) */
+.field select {
+  width: 100%;
+  border: 1.5px solid rgba(20, 40, 30, .16);
+  border-radius: 8px;
+  padding: .85em 1em;
+  font-family: inherit;
+  font-size: .94rem;
+  background: var(--white);
+  outline: none;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.field select:focus { border-color: var(--lime-dark); box-shadow: 0 0 0 3px rgba(164, 233, 74, .22); }
+
+/* Google / Apple buttons: your .btn-outline is lime, so override it here */
+.auth-social .btn-outline {
+  background: var(--white);
+  border-color: rgba(20, 40, 30, .16);
+  color: var(--ink);
+}
+.auth-social .btn-outline:hover { background: var(--forest); color: var(--white); border-color: var(--forest); }
+</style>
 </head>
 <body class="auth-body">
 
@@ -27,7 +55,7 @@
 
 <main class="auth-wrap">
   <div class="auth-media">
-    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1400&auto=format&fit=crop" alt="Kids playing soccer">
+    <img src="./image/GettyImages-1301620960-1024x683-compressed-compressed-compressed.webp" alt="Kids playing soccer">
     <div class="auth-media-copy">
       <span class="tag">Welcome back</span>
       <h2>Youth Sports.<br>Done Right.</h2>
@@ -46,6 +74,16 @@
           <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
           <small class="field-error"></small>
         </label>
+
+        <label class="field">
+  <span>Role</span>
+  <select name="role" required>
+    <option value="">Select role</option>
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+  <small class="field-error"></small>
+</label>
 
         <label class="field">
           <span>Password</span>
@@ -81,5 +119,134 @@
 </main>
 
 <script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById("loginForm");
+  const note = document.getElementById("loginNote");
+
+  // =========================
+  // HELPERS
+  // =========================
+
+  function showError(input, message) {
+    const field = input.closest(".field");
+    field.querySelector(".field-error").textContent = message;
+    input.classList.add("error-input");
+  }
+
+  function clearErrors() {
+    form.querySelectorAll(".field-error").forEach(function (el) {
+      el.textContent = "";
+    });
+    form.querySelectorAll(".error-input").forEach(function (el) {
+      el.classList.remove("error-input");
+    });
+    note.textContent = "";
+  }
+
+  // =========================
+  // LOGIN FORM
+  // =========================
+
+  if (form) {
+
+    // Pre-fill email if "Remember me" was used before
+    if (localStorage.getItem("remember") === "true") {
+      const savedEmail = localStorage.getItem("email");
+      if (savedEmail) form.email.value = savedEmail;
+      form.remember.checked = true;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      clearErrors();
+
+      const email = form.email;
+      const password = form.password;
+      const role = form.role; // optional: only exists if you add a role <select>
+      let valid = true;
+
+      // Email
+      const emailValue = email.value.trim();
+      if (emailValue === "") {
+        showError(email, "Email is required");
+        valid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(emailValue)) {
+        showError(email, "Please enter a valid email address");
+        valid = false;
+      }
+
+      // Role (only if the field exists)
+      if (role && role.value === "") {
+        showError(role, "Please select your role");
+        valid = false;
+      }
+
+      // Password
+      if (password.value.trim() === "") {
+        showError(password, "Password is required");
+        valid = false;
+      } else if (password.value.length < 6) {
+        showError(password, "Password must be at least 6 characters");
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Save login info
+      localStorage.setItem("email", emailValue);
+      if (role) localStorage.setItem("role", role.value);
+
+      if (form.remember.checked) {
+        localStorage.setItem("remember", "true");
+      } else {
+        localStorage.removeItem("remember");
+      }
+
+      // Success + redirect
+      note.textContent = "Login successful! Redirecting...";
+
+      setTimeout(function () {
+        if (role && role.value === "admin") {
+          window.location.href = "admin.html";
+        } else {
+          window.location.href = "user.html";
+        }
+      }, 900);
+    });
+  }
+
+  // =========================
+  // PASSWORD SHOW / HIDE
+  // =========================
+
+  document.querySelectorAll(".toggle-pw").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const input = document.getElementById(btn.dataset.target);
+      const icon = btn.querySelector("i");
+      const show = input.type === "password";
+
+      input.type = show ? "text" : "password";
+      icon.classList.toggle("fa-eye", !show);
+      icon.classList.toggle("fa-eye-slash", show);
+      btn.setAttribute("aria-label", show ? "Hide password" : "Show password");
+    });
+  });
+
+  // =========================
+  // SOCIAL LOGIN (Google / Apple)
+  // =========================
+
+  document.querySelectorAll(".auth-social button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      window.location.href = "404.html";
+    });
+  });
+
+});
+</script>
+
 </body>
 </html>
