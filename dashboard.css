@@ -301,7 +301,6 @@ tbody tr:hover{background:var(--bg-body);}
   .donut-chart{width:140px;height:140px;}
   .donut-center{width:92px;height:92px;}
   .donut-legend{width:100%;}
-  .topbar-user-email{display:none;}
   .icon-btn{width:36px;height:36px;}
 }
 @media (max-width:400px){

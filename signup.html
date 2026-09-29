@@ -28,6 +28,16 @@
   transition: border-color .25s ease, box-shadow .25s ease;
 }
 .field select:focus { border-color: var(--lime-dark); box-shadow: 0 0 0 3px rgba(164, 233, 74, .22); }
+.field select.error-input:focus { box-shadow: 0 0 0 3px rgba(214, 69, 69, .18); }
+
+/* terms error sits outside a .field, so style it here */
+.terms-error {
+  display: block;
+  min-height: 1.1em;
+  margin: -.2em 0 .8em;
+  color: #d64545;
+  font-size: .8rem;
+}
 
 /* Google / Apple buttons: your .btn-outline is lime, so override it here */
 .auth-social .btn-outline {
@@ -43,13 +53,9 @@
 <div class="scroll-progress" id="scrollProgress" style="display:none;"></div>
 
 <header class="auth-header">
-  <a href="index.html" class="logo">
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 20C10 20 14 8 24 8C29 8 31 12 31 12L20 24C20 24 15 30 8 27C4.5 25.5 3 20 3 20Z" fill="#8FE84C"/>
-      <path d="M3 20C3 20 9 24 15 21" stroke="#1B3B36" stroke-width="1.6" stroke-linecap="round"/>
-    </svg>
-    <span>Stackly</span>
-  </a>
+    <a href="./index.html" class="logo">
+      <img src="./logo/Untitled design (7)-compressed.webp" alt="Stackly">
+    </a>
   <a href="index.html" class="auth-back"><i class="fa-solid fa-arrow-left"></i> Back to site</a>
 </header>
 
@@ -89,14 +95,14 @@
         </label>
 
         <label class="field">
-  <span>Role</span>
-  <select name="role" required>
-    <option value="">Select role</option>
-    <option value="user">User</option>
-    <option value="admin">Admin</option>
-  </select>
-  <small class="field-error"></small>
-</label>
+          <span>Role</span>
+          <select name="role" required>
+            <option value="">Select role</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+          <small class="field-error"></small>
+        </label>
 
         <label class="field">
           <span>Password</span>
@@ -110,7 +116,7 @@
 
         <label class="field">
           <span>Confirm password</span>
-          <input type="password" name="confirmPassword" placeholder="Re-enter your password" required id="confirmPassword">
+          <input type="password" name="confirmPassword" placeholder="Re-enter your password" required id="confirmPassword" autocomplete="new-password">
           <small class="field-error"></small>
         </label>
 
@@ -118,6 +124,7 @@
           <input type="checkbox" name="terms" required>
           <span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></span>
         </label>
+        <small class="terms-error" id="termsError" aria-live="polite"></small>
 
         <button type="submit" class="btn btn-lime btn-full">Create account</button>
         <p class="form-note" id="signupNote" aria-live="polite"></p>
@@ -140,6 +147,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("signupForm");
+  if (!form) return;
+
   const note = document.getElementById("signupNote");
   const termsError = document.getElementById("termsError");
   const meter = document.querySelector("#pwMeter span");
@@ -148,15 +157,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const panel = document.querySelector(".auth-panel");
   if (panel) panel.classList.add("in-view");
 
-  if (!form) return;
+  // Use form.elements so names like "role" never clash with built-in properties
+  const f = form.elements;
 
   // =========================
   // HELPERS
   // =========================
 
+  function setText(el, text) {
+    if (el) el.textContent = text;
+  }
+
   function showError(input, message) {
     const field = input.closest(".field");
-    field.querySelector(".field-error").textContent = message;
+    if (field) setText(field.querySelector(".field-error"), message);
     input.classList.add("error-input");
   }
 
@@ -167,8 +181,8 @@ document.addEventListener("DOMContentLoaded", function () {
     form.querySelectorAll(".error-input").forEach(function (el) {
       el.classList.remove("error-input");
     });
-    termsError.textContent = "";
-    note.textContent = "";
+    setText(termsError, "");
+    setText(note, "");
   }
 
   // Score 0-4: length, upper+lower, number, symbol
@@ -185,21 +199,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // PASSWORD STRENGTH METER
   // =========================
 
-  form.password.addEventListener("input", function () {
-    const score = passwordScore(form.password.value);
+  f.password.addEventListener("input", function () {
+    if (!meter) return;
+    const value = f.password.value;
+    if (value === "") {
+      meter.style.width = "0%";
+      return;
+    }
+    const score = passwordScore(value);
     const colors = ["#d64545", "#d64545", "#e0a32e", "#8fd431", "#3fae2a"];
-    const empty = form.password.value === "";
-    meter.style.width = empty ? "0%" : (score / 4) * 100 + "%";
+    meter.style.width = (score / 4) * 100 + "%";
     meter.style.background = colors[score];
   });
 
   // Clear an error as soon as the user edits that field
   form.querySelectorAll("input, select").forEach(function (el) {
-    el.addEventListener("input", function () {
+    const evt = el.type === "checkbox" ? "change" : "input";
+    el.addEventListener(evt, function () {
       el.classList.remove("error-input");
       const field = el.closest(".field");
-      if (field) field.querySelector(".field-error").textContent = "";
-      if (el.name === "terms") termsError.textContent = "";
+      if (field) setText(field.querySelector(".field-error"), "");
+      if (el.name === "terms") setText(termsError, "");
     });
   });
 
@@ -211,13 +231,13 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     clearErrors();
 
-    const firstName = form.firstName;
-    const lastName = form.lastName;
-    const email = form.email;
-    const role = form.role;
-    const password = form.password;
-    const confirmPassword = form.confirmPassword;
-    const terms = form.terms;
+    const firstName = f.firstName;
+    const lastName = f.lastName;
+    const email = f.email;
+    const role = f.role;
+    const password = f.password;
+    const confirmPassword = f.confirmPassword;
+    const terms = f.terms;
     let valid = true;
 
     // First name
@@ -277,19 +297,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Terms
     if (!terms.checked) {
-      termsError.textContent = "You must accept the Terms and Privacy Policy";
+      setText(termsError, "You must accept the Terms and Privacy Policy");
       valid = false;
     }
 
     // Stop + shake if invalid
     if (!valid) {
       const card = document.querySelector(".auth-card");
-      card.classList.remove("shake");
-      void card.offsetWidth; // restart animation
-      card.classList.add("shake");
+      if (card) {
+        card.classList.remove("shake");
+        void card.offsetWidth; // restart animation
+        card.classList.add("shake");
+      }
 
       const firstBad = form.querySelector(".error-input");
       if (firstBad) firstBad.focus();
+      else terms.focus();
       return;
     }
 
@@ -297,22 +320,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // SAVE ACCOUNT (demo only, no password stored)
     // =========================
 
-    localStorage.setItem("signupUser", JSON.stringify({
-      firstName: firstName.value.trim(),
-      lastName: lastName.value.trim(),
-      email: emailValue,
-      role: role.value
-    }));
+    try {
+      localStorage.setItem("signupUser", JSON.stringify({
+        firstName: firstName.value.trim(),
+        lastName: lastName.value.trim(),
+        email: emailValue,
+        role: role.value
+      }));
 
-    // Pre-fill the login page
-    localStorage.setItem("email", emailValue);
-    localStorage.setItem("role", role.value);
+      // Pre-fill the login page
+      localStorage.setItem("email", emailValue);
+      localStorage.setItem("role", role.value);
+    } catch (err) {
+      // localStorage can be blocked (private mode etc.) - don't break signup
+      console.warn("Could not save to localStorage:", err);
+    }
 
     // =========================
     // SUCCESS + REDIRECT TO LOGIN
     // =========================
 
-    note.textContent = "Account created! Redirecting to login...";
+    setText(note, "Account created! Redirecting to login...");
 
     setTimeout(function () {
       window.location.href = "login.html";
@@ -327,6 +355,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function () {
       const input = document.getElementById(btn.dataset.target);
       const icon = btn.querySelector("i");
+      if (!input || !icon) return;
       const show = input.type === "password";
 
       input.type = show ? "text" : "password";
