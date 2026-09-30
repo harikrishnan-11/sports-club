@@ -756,7 +756,7 @@ img.img-fallback { display: flex; align-items: center; justify-content: center; 
   .location-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1023px) {
   /* ---- header + mobile menu ---- */
   .hamburger { display: flex; }
   .main-nav {
